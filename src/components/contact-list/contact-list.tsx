@@ -12,7 +12,7 @@ export const ContactList = () => {
   return (
     <>
       <Employee />
-      <Employee />
+      {/* <Employee /> */}
     </>
   );
 };

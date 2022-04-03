@@ -8,13 +8,15 @@ import './header.scss';
 
 export const Header = () => {
   return (
-    <div className='header row'>
-      <div className='col-auto'>
-        <img className='header__logo' src={logo} alt='codan logo' />
+    <header className='container-fluid'>
+      <div className='header row'>
+        <div className='col-auto'>
+          <img className='header__logo' src={logo} alt='codan logo' />
+        </div>
+        <div className='col-auto'>
+          <h1>Medarbejdere</h1>
+        </div>
       </div>
-      <div className='col-auto'>
-        <h1>Medarbejdere</h1>
-      </div>
-    </div>
+    </header>
   );
 };
