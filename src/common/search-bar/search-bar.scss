@@ -1,0 +1,15 @@
+@import '../../utils/shared-styles.scss';
+
+.search-bar {
+  margin-bottom: 1.5rem;
+
+  &__input {
+    padding: 0.5rem;
+    width: 50%;
+    background-color: #f0f2f5;
+    border: 2px solid $primary-color;
+    border-radius: 10px;
+  }
+
+
+}

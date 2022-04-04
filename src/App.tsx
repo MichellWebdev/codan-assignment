@@ -1,7 +1,8 @@
 import React from 'react';
 
 // Common
-import { Header } from './common/header.tsx/header';
+import { Header } from './common/header/header';
+import { SearchBar } from './common/search-bar/search-bar';
 
 // Components
 import { ContactList } from './components/contact-list/contact-list';
@@ -13,6 +14,7 @@ export const App = () => {
   return (
     <>
       <Header />
+      <SearchBar />
       <ContactList />
     </>
   );

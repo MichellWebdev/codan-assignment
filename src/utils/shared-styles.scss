@@ -6,13 +6,22 @@
 }
 
 body {
-  max-width: 1400px;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #f0f2f5;
 }
 
-.primary-color {
-  color: #050faa;
+.row > * {
+  padding-left: 0;
 }
 
-.primary-light {
-  color: #444bbf;
+.page-margin {
+  margin: 0 2rem;
 }
+
+$primary-color: #050faa;
+
+$primary-light: #444bbf;
+
+$box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.05);
+
