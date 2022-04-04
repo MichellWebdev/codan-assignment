@@ -17,10 +17,10 @@ export const Employee = ({ image, firstName, lastName, phone, cell, email, count
   return (
     <div className='container-fluid'>
       <div className='page-margin row employee-card align-items-center'>
-        <div className='col-2'>
+        <div className='col-4 col-sm-3 col-md-2'>
           <img src={image} alt='profile image' />
         </div>
-        <div className='col-10'>
+        <div className='col-8 col-sm-9 col-md-10'>
           <div className='row'>
             <div className='col-md-4'>
               <p>
