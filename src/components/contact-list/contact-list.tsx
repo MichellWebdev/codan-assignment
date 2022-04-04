@@ -1,25 +1,36 @@
 import React, { useState, useEffect } from 'react';
 
+// API
+import { getContactInfo } from '../../services/contactApi';
+
+// Common components
 import { Employee } from '../../common/employee/employee';
 
+// Styles
 import './contact-list.scss';
 
 export const ContactList = () => {
-  const [contacts, setContacts] = useState();
+  const [contacts, setContacts] = useState([]);
 
-  // Make individual contact as a component, then in here, import that component
-  // And probably map it so that each indivudal prop will be compliant to whatever information there is
-  return (
-    <>
+  useEffect(() => {
+    getContactInfo().then(data => setContacts(data));
+  }, []);
+
+  const contactInfo = contacts.map(
+    ({ name: { first, last }, phone, cell, email, location: { country }, nat, picture: { medium } }, key) => (
       <Employee
-        image='image'
-        name='name'
-        phone='phone'
-        cell='cell'
-        email='email'
-        country='country'
-        nationality='nationality'
+        key={key}
+        image={medium}
+        firstName={first}
+        lastName={last}
+        phone={phone}
+        cell={cell}
+        email={email}
+        country={country}
+        nationality={nat}
       />
-    </>
+    )
   );
+
+  return <div>{contactInfo}</div>;
 };

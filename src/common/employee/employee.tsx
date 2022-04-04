@@ -4,7 +4,8 @@ import './employee.scss';
 
 interface EmployeeProps {
   image: string;
-  name: string;
+  firstName: string;
+  lastName: string;
   phone: string;
   cell: string;
   email: string;
@@ -12,33 +13,35 @@ interface EmployeeProps {
   nationality: string;
 }
 
-export const Employee = ({ image, name, phone, cell, email, country, nationality }: EmployeeProps) => {
+export const Employee = ({ image, firstName, lastName, phone, cell, email, country, nationality }: EmployeeProps) => {
   return (
     <div className='container-fluid'>
-      <div className='page-margin row employee-card'>
+      <div className='page-margin row employee-card align-items-center'>
         <div className='col-2'>
-          <p>Profile image</p>
+          <img src={image} alt='profile image' />
         </div>
         <div className='col-10'>
           <div className='row'>
-            <div className='col-3'>
-              <p>Name: {name}</p>
+            <div className='col-md-4'>
+              <p>
+                Name: {firstName} {lastName}
+              </p>
             </div>
-            <div className='col-3'>
+            <div className='col-md-4'>
               <p>Phone: {phone} </p>
             </div>
-            <div className='col-3'>
+            <div className='col-md-4'>
               <p>Mobile: {cell} </p>
             </div>
           </div>
           <div className='row'>
-            <div className='col-3'>
+            <div className='col-md-4'>
               <p>E-mail: {email} </p>
             </div>
-            <div className='col-3'>
+            <div className='col-md-4'>
               <p>Country: {country} </p>
             </div>
-            <div className='col-3'>
+            <div className='col-md-4'>
               <p>Nationality: {nationality} </p>
             </div>
           </div>
