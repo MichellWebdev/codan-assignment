@@ -1,5 +1,4 @@
-import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';

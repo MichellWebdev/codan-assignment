@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Components
 import { Employee } from '../../common/employee/employee';
 
@@ -7,7 +5,7 @@ import { Employee } from '../../common/employee/employee';
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
 
 interface ContactListProps {
-  filteredEmployees: any;
+  filteredEmployees: EmployeeLabels[];
 }
 
 export const ContactList = ({ filteredEmployees }: ContactListProps) => {

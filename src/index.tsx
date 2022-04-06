@@ -1,4 +1,3 @@
-import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -6,26 +5,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 import { App } from './App';
-import { DetailedContact } from './components/detailed-contact/detailed-contact';
+// import { DetailedContact } from './common/detailed-contact/detailed-contact';
+import { ContactInformation } from './components/contact-information/contact-information';
 
 const rootElement = document.getElementById('root');
 render(
   <BrowserRouter>
     <Routes>
       <Route path='/' element={<App />}></Route>
-      <Route path='details' element={<DetailedContact />} />
+      <Route path='details' element={<ContactInformation />} />
     </Routes>
   </BrowserRouter>,
   rootElement
 );
-
-// import ReactDOM from 'react-dom';
-
-// import { App } from './App';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
