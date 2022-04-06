@@ -15,7 +15,7 @@ export const Employee = ({ employee }: EmployeeProps) => {
   return (
     <Link to='/details'>
       <div className='container-fluid'>
-        <div className='page-margin row employee-card align-items-center'>
+        <div className='row align-items-center page-margin employee-card'>
           <div className='col-4 col-sm-3 col-md-2'>
             <img src={employee.picture.medium} alt='profile image' />
           </div>
