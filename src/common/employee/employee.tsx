@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
@@ -12,38 +13,40 @@ interface EmployeeProps {
 
 export const Employee = ({ employee }: EmployeeProps) => {
   return (
-    <div className='container-fluid'>
-      <div className='page-margin row employee-card align-items-center'>
-        <div className='col-4 col-sm-3 col-md-2'>
-          <img src={employee.picture.medium} alt='profile image' />
-        </div>
-        <div className='col-8 col-sm-9 col-md-10'>
-          <div className='row'>
-            <div className='col-md-4'>
-              <p>
-                Name: {employee.name.first} {employee.name.last}
-              </p>
-            </div>
-            <div className='col-md-4'>
-              <p>Phone: {employee.phone} </p>
-            </div>
-            <div className='col-md-4'>
-              <p>Mobile: {employee.cell} </p>
-            </div>
+    <Link to='/details'>
+      <div className='container-fluid'>
+        <div className='page-margin row employee-card align-items-center'>
+          <div className='col-4 col-sm-3 col-md-2'>
+            <img src={employee.picture.medium} alt='profile image' />
           </div>
-          <div className='row'>
-            <div className='col-md-4'>
-              <p>E-mail: {employee.email} </p>
+          <div className='col-8 col-sm-9 col-md-10'>
+            <div className='row'>
+              <div className='col-md-4'>
+                <p>
+                  Name: {employee.name.first} {employee.name.last}
+                </p>
+              </div>
+              <div className='col-md-4'>
+                <p>Phone: {employee.phone} </p>
+              </div>
+              <div className='col-md-4'>
+                <p>Mobile: {employee.cell} </p>
+              </div>
             </div>
-            <div className='col-md-4'>
-              <p>Country: {employee.location.country} </p>
-            </div>
-            <div className='col-md-4'>
-              <p>Nationality: {employee.nat} </p>
+            <div className='row'>
+              <div className='col-md-4'>
+                <p>E-mail: {employee.email} </p>
+              </div>
+              <div className='col-md-4'>
+                <p>Country: {employee.location.country} </p>
+              </div>
+              <div className='col-md-4'>
+                <p>Nationality: {employee.nat} </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
