@@ -22,7 +22,7 @@ export const ContactListSearch = () => {
   }, []);
 
   // Save state to next page
-  window.sessionStorage.setItem('contactsArray', JSON.stringify(contacts));
+  // window.sessionStorage.setItem('contactsArray', JSON.stringify(contacts));
   // console.log('contacts', contacts);
 
   // Search functionality on first and last name
