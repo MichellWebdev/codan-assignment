@@ -22,12 +22,12 @@ export const ContactListSearch = () => {
   // const [contacts, setContacts] = useState<EmployeeLabels[]>([]);
 
   const employeeArray = useSelector((state: RootState) => state.employee);
-  console.log('employeeArray', employeeArray);
 
   // Retrieve data from API
   useEffect(() => {
     dispatch(fetchEmployees());
   }, []);
+  console.log('employeeArray', employeeArray);
 
   //OLD
   // useEffect(() => {
@@ -42,9 +42,13 @@ export const ContactListSearch = () => {
     );
   });
 
+  console.log('FilteredEmployees', filteredEmployees);
+
   const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchField(e.currentTarget.value);
   };
+
+  // const handleId = employeeArray == [] ? '' : employeeArray.id.value;
 
   return (
     <>
