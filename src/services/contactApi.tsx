@@ -1,6 +1,6 @@
 export const baseUrl = 'https://randomuser.me/api/';
 // export const contactInformation = `${baseUrl}?inc=name,email,phone,cell,nat,location,picture`;
-export const contactInformation = `${baseUrl}?results=15&inc=name,email,phone,cell,nat,location,picture`;
+export const contactInformation = `${baseUrl}?results=15&inc=name,email,phone,cell,nat,location,picture,id`;
 
 export const detailedInformation = `${baseUrl}??exc=login`;
 

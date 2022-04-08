@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { createStore } from 'redux';
 
 // Components
 import { Header } from './common/header/header';

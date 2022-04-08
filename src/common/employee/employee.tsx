@@ -12,6 +12,10 @@ interface EmployeeProps {
 
 export const Employee = ({ employee }: EmployeeProps) => {
   return (
+    // Remove link and use a button instead to get some codan styling in too
+    // Then pass the onclick of the button as just a function prop
+    // In ContactList the function prop should be as the example shows and with state still as a prop
+    // At last in SearchContacts the state should be the state that's saved in redux
     <Link to='/details'>
       <div className='container-fluid'>
         <div className='row align-items-center page-margin employee-card'>
