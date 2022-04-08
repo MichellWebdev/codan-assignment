@@ -21,6 +21,10 @@ export const ContactListSearch = () => {
     getContactInfo().then(data => setContacts(data));
   }, []);
 
+  // Save state to next page
+  window.sessionStorage.setItem('contactsArray', JSON.stringify(contacts));
+  // console.log('contacts', contacts);
+
   // Search functionality on first and last name
   const filteredEmployees = contacts.filter(employee => {
     return (
