@@ -11,7 +11,7 @@ interface ContactListProps {
 
 export const ContactList = ({ filteredEmployees, state }: ContactListProps) => {
   const filtered = filteredEmployees.map((employee: EmployeeLabels, index?: number) => {
-    console.log('employee', employee);
+    // console.log('employee', employee);
     // Function for useNavigate should probably be here and save state as employee
     state = employee;
     return (

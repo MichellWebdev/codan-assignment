@@ -16,6 +16,8 @@ export const ContactListSearch = () => {
 
   const [contacts, setContacts] = useState<EmployeeLabels[]>([]);
 
+  window.sessionStorage.setItem('test', 'test');
+
   // Save this API call and use it when you select a user, so it's the same results.
   // So the saved API call will be used in contact information.
   // Then in contact information you should probably use .find to match the clicked users key with the id in the API call

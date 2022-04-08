@@ -12,6 +12,10 @@ import { DetailedLabels } from '../../utils/labels/detailed-labels';
 export const ContactInformation = () => {
   const [detailedContact, setDetailedContact] = useState<DetailedLabels[]>([]);
 
+  const retrieveData = window.sessionStorage.getItem('test');
+
+  console.log('retrieveData', retrieveData);
+
   // Retrieve data from API
   useEffect(() => {
     getDetailedContactInfo().then(data => setDetailedContact(data));

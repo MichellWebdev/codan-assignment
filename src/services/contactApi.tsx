@@ -4,7 +4,6 @@ export const contactInformation = `${baseUrl}?results=15&inc=name,email,phone,ce
 
 export const detailedInformation = `${baseUrl}??exc=login`;
 
-// longer info for details page could be called "getDetailedContactInfo" or something like that
 export const getContactInfo = async () => {
   const connection = await fetch(contactInformation);
 
