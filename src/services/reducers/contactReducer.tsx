@@ -9,7 +9,7 @@ import { EMPLOYEES } from '../actions/contactAction';
 // Or use dispatch inside ContactInformation??
 
 const initialState = {
-  employee: [{}],
+  employee: [],
 };
 
 const EmployeeReducer = (state = initialState, action: any) => {
