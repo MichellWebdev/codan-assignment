@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
+// Redux
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../..';
+import { fetchEmployees } from '../../services/actions/employeeAction';
+
 // API
 import { getContactInfo } from '../../services/contactApi';
 
@@ -11,22 +16,26 @@ import { ContactList } from '../../common/contact-list/contact-list';
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
 
 export const ContactListSearch = () => {
+  const dispatch = useDispatch();
   // Search field with a default value of an empty string
   const [searchField, setSearchField] = useState('');
+  // const [contacts, setContacts] = useState<EmployeeLabels[]>([]);
 
-  const [contacts, setContacts] = useState<EmployeeLabels[]>([]);
+  const employeeArray = useSelector((state: RootState) => state.employee);
+  console.log('employeeArray', employeeArray);
 
   // Retrieve data from API
   useEffect(() => {
-    getContactInfo().then(data => setContacts(data));
+    dispatch(fetchEmployees());
   }, []);
 
-  // Save state to next page
-  // window.sessionStorage.setItem('contactsArray', JSON.stringify(contacts));
-  // console.log('contacts', contacts);
+  //OLD
+  // useEffect(() => {
+  //   getContactInfo().then(data => setContacts(data));
+  // }, []);
 
   // Search functionality on first and last name
-  const filteredEmployees = contacts.filter(employee => {
+  const filteredEmployees = employeeArray.filter((employee: EmployeeLabels) => {
     return (
       employee.name.first.toLowerCase().includes(searchField.toLowerCase()) ||
       employee.name.last.toLowerCase().includes(searchField.toLowerCase())
