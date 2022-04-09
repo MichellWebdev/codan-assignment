@@ -24,6 +24,7 @@ export const ContactInformation = () => {
 
   // Fetch employee array
   const employeeArray = useSelector((state: RootState) => state.employee);
+
   console.log('employeeArray1', employeeArray);
 
   // Find the id from location.state that matches the id in the employeeArray

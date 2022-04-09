@@ -12,6 +12,8 @@ interface DetailedContactProps {
 }
 
 export const DetailedContact = ({ details }: DetailedContactProps) => {
+  const formattedDate = new Date(details.dob.date).toLocaleDateString('dk-DK');
+
   return (
     <>
       <Header />
@@ -23,7 +25,7 @@ export const DetailedContact = ({ details }: DetailedContactProps) => {
               {details.name.first} {details.name.last}
             </h3>
             <p>
-              Birthday: {details.dob.date} Age: {details.dob.age}
+              Birthday: {formattedDate} Age: {details.dob.age}
             </p>
             <p>E-mail: {details.email}</p>
             <p>
