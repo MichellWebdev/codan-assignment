@@ -16,7 +16,11 @@ export interface DetailedLabels {
   };
   nat: string;
   dob: {
-    date: string;
+    date: Date;
     age: number;
+  };
+  id?: {
+    name: string;
+    value: string;
   };
 }

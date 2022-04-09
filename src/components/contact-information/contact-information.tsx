@@ -1,31 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
-// API
-import { getDetailedContactInfo } from '../../services/contactApi';
+// Redux
+import { RootState } from '../..';
+import { useSelector } from 'react-redux';
 
 // Component
 import { DetailedContact } from '../../common/detailed-contact/detailed-contact';
 
-// Labels
-import { DetailedLabels } from '../../utils/labels/detailed-labels';
+interface EmployeeId {
+  id: {
+    value: string;
+  };
+  employeeId: string;
+}
 
 export const ContactInformation = () => {
-  const [detailedContact, setDetailedContact] = useState<DetailedLabels[]>([]);
+  const location = useLocation();
 
-  // let getEmployees = window.sessionStorage.getItem('contactsArray');
-  // getEmployees = JSON.parse(getEmployees || '{}');
-  // console.log('getEmployees1', getEmployees);
+  // Fetch employee ID from previous page
+  const state = location.state as EmployeeId;
+  const { employeeId } = state;
+  const id = employeeId;
 
-  // Retrieve data from API
-  useEffect(() => {
-    getDetailedContactInfo().then(data => setDetailedContact(data));
-  }, []);
+  // Fetch employee array
+  const employeeArray = useSelector((state: RootState) => state.employee);
 
-  // console.log('detailedContact', detailedContact);
+  console.log('employeeArray1', employeeArray);
 
-  const testMap = detailedContact.map((contactInformation: DetailedLabels, index: number) => (
-    <DetailedContact key={index} details={contactInformation} />
-  ));
+  // Find the id from location.state that matches the id in the employeeArray
+  const findSelectedEmployee = employeeArray.find((employeeId: EmployeeId) => employeeId.id.value === id);
 
-  return <div>{testMap}</div>;
+  return (
+    <div>
+      <DetailedContact details={findSelectedEmployee} />
+    </div>
+  );
 };

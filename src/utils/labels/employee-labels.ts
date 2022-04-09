@@ -13,4 +13,8 @@ export interface EmployeeLabels {
     country: string;
   };
   nat: string;
+  id: {
+    name: string;
+    value: string;
+  };
 }

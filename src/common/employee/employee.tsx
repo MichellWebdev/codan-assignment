@@ -10,9 +10,14 @@ interface EmployeeProps {
   employee: EmployeeLabels;
 }
 
-export const Employee = ({ employee }: EmployeeProps) => {
+export const Employee = ({
+  employee,
+  employee: {
+    id: { value },
+  },
+}: EmployeeProps) => {
   return (
-    <Link to='/details'>
+    <Link to='/details' state={{ employeeId: value }}>
       <div className='container-fluid'>
         <div className='row align-items-center page-margin employee-card'>
           <div className='col-4 col-sm-3 col-md-2'>
@@ -43,6 +48,9 @@ export const Employee = ({ employee }: EmployeeProps) => {
                 <p>Nationality: {employee.nat} </p>
               </div>
             </div>
+          </div>
+          <div className='align-right'>
+            <button className='button'>Read more</button>
           </div>
         </div>
       </div>
