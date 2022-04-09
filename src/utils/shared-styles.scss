@@ -39,3 +39,21 @@ p {
 .page-margin {
   margin: 0 2rem;
 }
+
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button {
+  border: 0;
+  margin: 1rem 0;
+  background-color: $primary-color;
+  color: white;
+  padding: 6px 19px;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: $primary-light;
+}

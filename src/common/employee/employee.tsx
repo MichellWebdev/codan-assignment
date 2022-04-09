@@ -49,6 +49,9 @@ export const Employee = ({
               </div>
             </div>
           </div>
+          <div className='align-right'>
+            <button className='button'>Read more</button>
+          </div>
         </div>
       </div>
     </Link>
