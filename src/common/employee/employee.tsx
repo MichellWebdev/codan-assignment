@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
+import { Button } from '../button/button';
 
 // Styles
 import './employee.scss';
@@ -49,9 +50,7 @@ export const Employee = ({
               </div>
             </div>
           </div>
-          <div className='align-right'>
-            <button className='button'>Read more</button>
-          </div>
+          <Button buttonText='Read more' />
         </div>
       </div>
     </Link>
