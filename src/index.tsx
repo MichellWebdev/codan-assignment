@@ -26,7 +26,7 @@ render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<App />}></Route>
+        <Route path='/' element={<App />} />
         <Route path='details' element={<ContactInformation />} />
       </Routes>
     </BrowserRouter>
