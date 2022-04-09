@@ -1,3 +1,11 @@
+// Variables
+$primary-color: #050faa;
+
+$primary-light: #444bbf;
+
+$box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.05);
+
+// Global styles
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +19,19 @@ body {
   background-color: #f0f2f5;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+p {
+  margin: 0.5rem 0;
+}
+
 .row > * {
   padding-left: 0;
 }
@@ -19,9 +40,20 @@ body {
   margin: 0 2rem;
 }
 
-$primary-color: #050faa;
+.align-right {
+  display: flex;
+  justify-content: flex-end;
+}
 
-$primary-light: #444bbf;
+.button {
+  border: 0;
+  margin: 1rem 0;
+  background-color: $primary-color;
+  color: white;
+  padding: 6px 19px;
+  font-weight: bold;
+}
 
-$box-shadow: 3px 3px 7px 0px rgba(0, 0, 0, 0.05);
-
+.button:hover {
+  background-color: $primary-light;
+}

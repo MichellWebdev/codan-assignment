@@ -1,6 +1,6 @@
-export interface EmployeeLabels {
+export interface DetailedLabels {
   picture: {
-    medium: string;
+    large: string;
   };
   name: {
     first: string;
@@ -11,9 +11,15 @@ export interface EmployeeLabels {
   email: string;
   location: {
     country: string;
+    state: string;
+    city: string;
   };
   nat: string;
-  id: {
+  dob: {
+    date: Date;
+    age: number;
+  };
+  id?: {
     name: string;
     value: string;
   };
