@@ -12,7 +12,7 @@ import { ContactList } from '../../common/contact-list/contact-list';
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
 
-export const ContactListSearch = () => {
+export const SearchContacts = () => {
   const dispatch = useDispatch();
 
   // Search field with a default value of an empty string

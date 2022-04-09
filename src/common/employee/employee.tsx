@@ -50,7 +50,7 @@ export const Employee = ({
               </div>
             </div>
           </div>
-          <Button buttonText='Read more' />
+          <Button buttonText='Read more' rightAlign />
         </div>
       </div>
     </Link>

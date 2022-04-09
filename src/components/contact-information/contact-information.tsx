@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 
 // Component
 import { DetailedContact } from '../../common/detailed-contact/detailed-contact';
+import { Header } from '../../common/header/header';
+import { Button } from '../../common/button/button';
 
 interface EmployeeId {
   id: {
@@ -31,8 +33,14 @@ export const ContactInformation = () => {
   const findSelectedEmployee = employeeArray.find((employeeId: EmployeeId) => employeeId.id.value === id);
 
   return (
-    <div>
+    <>
+      <Header />
+      <div className='container-fluid'>
+        <div className='row page-margin'>
+          <Button buttonText='Back to list' />
+        </div>
+      </div>
       <DetailedContact details={findSelectedEmployee} />
-    </div>
+    </>
   );
 };
