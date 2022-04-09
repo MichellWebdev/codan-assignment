@@ -7,7 +7,6 @@ export const fetchEmployees = () => {
     const connection = await fetch(contactInformation);
 
     const jResponse = await connection.json();
-    console.log('jResponse.results', jResponse.results);
 
     const employeeData = jResponse.results;
 
@@ -15,7 +14,6 @@ export const fetchEmployees = () => {
       console.log('error');
     } else {
       dispatch({ type: 'EMPLOYEE', payload: employeeData });
-      // console.log('jResponse.results', jResponse.results);
     }
   };
 };

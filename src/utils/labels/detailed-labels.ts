@@ -19,7 +19,7 @@ export interface DetailedLabels {
     date: string;
     age: number;
   };
-  id: {
+  id?: {
     name: string;
     value: string;
   };
