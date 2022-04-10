@@ -24,7 +24,7 @@ export const SearchContacts = () => {
   const [searchField, setSearchField] = useState('');
 
   // Retrieve data from redux
-  let employeeArray = useSelector((state: RootState) => state.employee);
+  let employeeArray: EmployeeLabels[] = useSelector((state: RootState) => state.employee);
 
   // Retrieve data from state
   const state = location.state as EmployeeLabels[];
