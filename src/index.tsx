@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Redux
 import { combineReducers, createStore, applyMiddleware } from 'redux';
-import { employeeReducer } from './services/reducers/employeeReducer';
 import ReduxThunk from 'redux-thunk';
+import { employeeReducer } from './services/reducers/employeeReducer';
 
 // Bootstrap
 import 'bootstrap/dist/css/bootstrap.css';
