@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 // Components
 import { App } from './App';
-import { ContactInformation } from './components/contact-information/contact-information';
+import { SelectedEmployee } from './components/selected-employee/selected-employee';
 import { Provider } from 'react-redux';
 
 // Reducers
@@ -27,7 +27,7 @@ render(
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<App />} />
-        <Route path='details' element={<ContactInformation />} />
+        <Route path='details' element={<SelectedEmployee />} />
       </Routes>
     </BrowserRouter>
   </Provider>,

@@ -5,14 +5,14 @@ import { RootState } from '../..';
 import { useSelector } from 'react-redux';
 
 // Component
-import { DetailedContact } from '../../common/detailed-contact/detailed-contact';
 import { Header } from '../../common/header/header';
 import { Button } from '../../common/button/button';
+import { EmployeeDetails } from '../../common/employee-details/employee-details';
 
 // Labels
 import { DetailedLabels } from '../../utils/labels/detailed-labels';
 
-export const ContactInformation = () => {
+export const SelectedEmployee = () => {
   const location = useLocation();
 
   // Selected employee array
@@ -32,7 +32,7 @@ export const ContactInformation = () => {
           </Link>
         </div>
       </div>
-      <DetailedContact details={locationState} />
+      <EmployeeDetails details={locationState} />
     </>
   );
 };

@@ -2,13 +2,13 @@
 import { DetailedLabels } from '../../utils/labels/detailed-labels';
 
 // Styles
-import './detailed-contact.scss';
+import './employee-details.scss';
 
-interface DetailedContactProps {
+interface EmployeeDetailsProps {
   details: DetailedLabels;
 }
 
-export const DetailedContact = ({ details }: DetailedContactProps) => {
+export const EmployeeDetails = ({ details }: EmployeeDetailsProps) => {
   const formattedDate = new Date(details.dob.date).toLocaleDateString('dk-DK');
 
   return (
