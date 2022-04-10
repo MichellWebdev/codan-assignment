@@ -26,7 +26,7 @@ export const DetailedContact = ({ details }: DetailedContactProps) => {
             <b>E-mail:</b> {details.email}
           </p>
           <p>
-            <b>Cellphone:</b> {details.cell} <b>Phone:</b> {details.phone}
+            <b>Mobile:</b> {details.cell} <b>Phone:</b> {details.phone}
           </p>
           <p>
             <b>Location:</b> {details.location.city}, {details.location.state}, {details.location.country}

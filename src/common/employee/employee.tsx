@@ -11,12 +11,7 @@ interface EmployeeProps {
   employee: EmployeeLabels;
 }
 
-export const Employee = ({
-  employee,
-  employee: {
-    id: { value },
-  },
-}: EmployeeProps) => {
+export const Employee = ({ employee }: EmployeeProps) => {
   return (
     <Link to='/details' state={employee}>
       <div className='container-fluid'>
@@ -33,29 +28,29 @@ export const Employee = ({
               </div>
               <div className='col-md-4'>
                 <p>
-                  <b>Phone:</b> {employee.phone}{' '}
+                  <b>Mobile:</b> {employee.cell}
                 </p>
               </div>
               <div className='col-md-4'>
                 <p>
-                  <b>Mobile:</b> {employee.cell}{' '}
+                  <b>Country:</b> {employee.location.country}
                 </p>
               </div>
             </div>
             <div className='row'>
               <div className='col-md-4'>
                 <p>
-                  <b>E-mail:</b> {employee.email}{' '}
+                  <b>E-mail:</b> {employee.email}
                 </p>
               </div>
               <div className='col-md-4'>
                 <p>
-                  <b>Country:</b> {employee.location.country}{' '}
+                  <b>Phone:</b> {employee.phone}
                 </p>
               </div>
               <div className='col-md-4'>
                 <p>
-                  <b>Nationality:</b> {employee.nat}{' '}
+                  <b>Nationality:</b> {employee.nat}
                 </p>
               </div>
             </div>

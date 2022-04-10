@@ -8,20 +8,20 @@ import { fetchEmployees } from '../../services/actions/employeeAction';
 
 // Components
 import { SearchBar } from '../../common/search-bar/search-bar';
-import { ContactList } from '../../common/contact-list/contact-list';
+import { EmployeeList } from '../../common/employee-list/employee-list';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
 import { Button } from '../../common/button/button';
 
-export const SearchContacts = () => {
+export const SearchEmployee = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
   // States
-  const [contactsMounted, setContactsMounted] = useState(false);
+  const [employeeListMounted, setEmployeeListMounted] = useState(false);
   const [searchField, setSearchField] = useState('');
-  const [buttonClicked, setButtonClicked] = useState(false);
+  const [, setButtonClicked] = useState(false);
 
   // Retrieve data from redux
   let employeeArray: EmployeeLabels[] = useSelector((state: RootState) => state.employee);
@@ -29,7 +29,7 @@ export const SearchContacts = () => {
   // Retrieve data from state
   const state = location.state as EmployeeLabels[];
 
-  if (state === null && !contactsMounted) {
+  if (state === null && !employeeListMounted) {
     dispatch(fetchEmployees());
   }
 
@@ -38,7 +38,7 @@ export const SearchContacts = () => {
   }
 
   useEffect(() => {
-    setContactsMounted(true);
+    setEmployeeListMounted(true);
   });
 
   // Search functionality on first name, last name or email
@@ -69,7 +69,7 @@ export const SearchContacts = () => {
           </div>
         </div>
       </div>
-      <ContactList filteredEmployees={filteredEmployees} />
+      <EmployeeList filteredEmployees={filteredEmployees} />
     </>
   );
 };
