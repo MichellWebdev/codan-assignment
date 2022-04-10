@@ -17,7 +17,6 @@ export const SelectedEmployee = () => {
 
   // Selected employee array
   const locationState = location.state as DetailedLabels;
-  console.log('Details array', locationState);
 
   // Fetch employee array
   const employeeArray = useSelector((state: RootState) => state.employee);
