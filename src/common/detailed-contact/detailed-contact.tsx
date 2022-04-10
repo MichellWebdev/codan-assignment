@@ -12,24 +12,28 @@ export const DetailedContact = ({ details }: DetailedContactProps) => {
   const formattedDate = new Date(details.dob.date).toLocaleDateString('dk-DK');
 
   return (
-    <div className='container-fluid'>
+    <div className='container-fluid details'>
       <div className='row page-margin details-card'>
         <div className='col'>
           <img src={details.picture.large} alt='Profile picture' />
-          <h3>
+          <h3 className='mt-1'>
             {details.name.first} {details.name.last}
           </h3>
           <p>
-            Birthday: {formattedDate} Age: {details.dob.age}
-          </p>
-          <p>E-mail: {details.email}</p>
-          <p>
-            Cellphone: {details.cell} Phone: {details.phone}
+            <b>Birthday:</b> {formattedDate} <b>Age:</b> {details.dob.age}
           </p>
           <p>
-            Location: {details.location.city}, {details.location.state}, {details.location.country}
+            <b>E-mail:</b> {details.email}
           </p>
-          <p>Nationality: {details.nat}</p>
+          <p>
+            <b>Cellphone:</b> {details.cell} <b>Phone:</b> {details.phone}
+          </p>
+          <p>
+            <b>Location:</b> {details.location.city}, {details.location.state}, {details.location.country}
+          </p>
+          <p>
+            <b>Nationality:</b> {details.nat}
+          </p>
         </div>
       </div>
     </div>
