@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -12,18 +13,35 @@ import { ContactList } from '../../common/contact-list/contact-list';
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
 
-export const ContactListSearch = () => {
+export const SearchContacts = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
+
+  // Mounted component
+  const [contactsMounted, setContactsMounted] = useState(false);
 
   // Search field with a default value of an empty string
   const [searchField, setSearchField] = useState('');
 
-  // Retrieve data
-  const employeeArray = useSelector((state: RootState) => state.employee);
+  // Retrieve data from redux
+  let employeeArray: EmployeeLabels[] = useSelector((state: RootState) => state.employee);
+
+  // Retrieve data from state
+  const state = location.state as EmployeeLabels[];
+
+  if (state === null && !contactsMounted) {
+    dispatch(fetchEmployees());
+  }
+
+  if (state !== null) {
+    employeeArray = state;
+  }
 
   useEffect(() => {
-    dispatch(fetchEmployees());
-  }, []);
+    setContactsMounted(true);
+  });
+
+  console.log('employeeArray', employeeArray);
 
   // Search functionality on first and last name
   const filteredEmployees = employeeArray.filter((employee: EmployeeLabels) => {

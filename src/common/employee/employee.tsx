@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
+import { Button } from '../button/button';
 
 // Styles
 import './employee.scss';
@@ -17,7 +18,7 @@ export const Employee = ({
   },
 }: EmployeeProps) => {
   return (
-    <Link to='/details' state={{ employeeId: value }}>
+    <Link to='/details' state={employee}>
       <div className='container-fluid'>
         <div className='row align-items-center page-margin employee-card'>
           <div className='col-4 col-sm-3 col-md-2'>
@@ -49,9 +50,7 @@ export const Employee = ({
               </div>
             </div>
           </div>
-          <div className='align-right'>
-            <button className='button'>Read more</button>
-          </div>
+          <Button buttonText='Read more' rightAlign />
         </div>
       </div>
     </Link>

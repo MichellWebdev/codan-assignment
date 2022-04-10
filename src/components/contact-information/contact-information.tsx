@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 // Redux
 import { RootState } from '../..';
@@ -6,33 +6,33 @@ import { useSelector } from 'react-redux';
 
 // Component
 import { DetailedContact } from '../../common/detailed-contact/detailed-contact';
+import { Header } from '../../common/header/header';
+import { Button } from '../../common/button/button';
 
-interface EmployeeId {
-  id: {
-    value: string;
-  };
-  employeeId: string;
-}
+// Labels
+import { DetailedLabels } from '../../utils/labels/detailed-labels';
 
 export const ContactInformation = () => {
   const location = useLocation();
 
-  // Fetch employee ID from previous page
-  const state = location.state as EmployeeId;
-  const { employeeId } = state;
-  const id = employeeId;
+  // Selected employee array
+  const locationState = location.state as DetailedLabels;
+  console.log('Details array', locationState);
 
   // Fetch employee array
   const employeeArray = useSelector((state: RootState) => state.employee);
 
-  console.log('employeeArray1', employeeArray);
-
-  // Find the id from location.state that matches the id in the employeeArray
-  const findSelectedEmployee = employeeArray.find((employeeId: EmployeeId) => employeeId.id.value === id);
-
   return (
-    <div>
-      <DetailedContact details={findSelectedEmployee} />
-    </div>
+    <>
+      <Header />
+      <div className='container-fluid'>
+        <div className='row page-margin'>
+          <Link to='/' state={employeeArray}>
+            <Button buttonText='Back to list' />
+          </Link>
+        </div>
+      </div>
+      <DetailedContact details={locationState} />
+    </>
   );
 };
