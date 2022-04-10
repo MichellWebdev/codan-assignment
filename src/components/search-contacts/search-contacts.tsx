@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Redux
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,14 +12,10 @@ import { ContactList } from '../../common/contact-list/contact-list';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
-import { useLocation } from 'react-router-dom';
 
 export const SearchContacts = () => {
   const dispatch = useDispatch();
   const location = useLocation();
-
-  const state = location.state as any;
-  console.log('state', state);
 
   // Mounted component
   const [contactsMounted, setContactsMounted] = useState(false);
@@ -29,23 +26,20 @@ export const SearchContacts = () => {
   // Retrieve data from redux
   let employeeArray = useSelector((state: RootState) => state.employee);
 
+  // Retrieve data from state
+  const state = location.state as EmployeeLabels[];
+
   if (state === null && !contactsMounted) {
     dispatch(fetchEmployees());
   }
 
   if (state !== null) {
-    employeeArray = state.array;
+    employeeArray = state;
   }
-
-  // Instead of dispatching here create a useState like the chats from native exam
-  // if component is mounted then set to true or false and then depending on that
-  // dispatch(fetchEmployees())
-  // Then say that the filteredEmployees should be whatever the state is??
 
   useEffect(() => {
     setContactsMounted(true);
   });
-  console.log('employeeArrayReload', employeeArray);
 
   // Search functionality on first and last name
   const filteredEmployees = employeeArray.filter((employee: EmployeeLabels) => {
@@ -54,8 +48,6 @@ export const SearchContacts = () => {
       employee.name.last.toLowerCase().includes(searchField.toLowerCase())
     );
   });
-
-  console.log('filteredEmployees', filteredEmployees);
 
   const handleSearch = (e: React.FormEvent<HTMLInputElement>) => {
     setSearchField(e.currentTarget.value);

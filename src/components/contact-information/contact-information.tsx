@@ -8,53 +8,37 @@ import { useSelector } from 'react-redux';
 import { DetailedContact } from '../../common/detailed-contact/detailed-contact';
 import { Header } from '../../common/header/header';
 import { Button } from '../../common/button/button';
+import { EmployeeLabels } from '../../utils/labels/employee-labels';
+import { DetailedLabels } from '../../utils/labels/detailed-labels';
 
-interface EmployeeId {
-  id: {
-    value: string;
-  };
-  employeeId: string;
+interface Employee {
+  // id: {
+  //   value: string;
+  // };
+  array: [];
 }
 
 export const ContactInformation = () => {
   const location = useLocation();
 
-  // State should not only store the id but also the whole array since otherwise it won't work
-  // When a reload happens because the array will be empty
-
-  // Fetch employee ID from previous page
-  // const locationState = location.state as EmployeeId;
-  const locationState = location.state as any;
-  const { employeeId } = locationState;
-  const id = employeeId;
-
-  console.log('location.stateArray', locationState.array);
+  // Selected employee array
+  const locationState = location.state as DetailedLabels;
+  console.log('Details array', locationState);
 
   // Fetch employee array
   const employeeArray = useSelector((state: RootState) => state.employee);
-
-  console.log('employeeArrayDetailsPage', employeeArray);
-
-  // if (employeeArray === []) {
-  //   employeeArray = locationState.array;
-  // }
-
-  // Find the id from location.state that matches the id in the employeeArray
-  // const findSelectedEmployee = employeeArray.find((employeeId: EmployeeId) => employeeId.id.value === id);
-
-  // console.log('findSelectedEmployee', findSelectedEmployee);
 
   return (
     <>
       <Header />
       <div className='container-fluid'>
         <div className='row page-margin'>
-          <Link to='/' state={{ array: employeeArray }}>
+          <Link to='/' state={employeeArray}>
             <Button buttonText='Back to list' />
           </Link>
         </div>
       </div>
-      <DetailedContact details={locationState.array} />
+      <DetailedContact details={locationState} />
     </>
   );
 };

@@ -18,7 +18,7 @@ export const Employee = ({
   },
 }: EmployeeProps) => {
   return (
-    <Link to='/details' state={{ array: employee, employeeId: value }}>
+    <Link to='/details' state={employee}>
       <div className='container-fluid'>
         <div className='row align-items-center page-margin employee-card'>
           <div className='col-4 col-sm-3 col-md-2'>
