@@ -8,15 +8,9 @@ import { useSelector } from 'react-redux';
 import { DetailedContact } from '../../common/detailed-contact/detailed-contact';
 import { Header } from '../../common/header/header';
 import { Button } from '../../common/button/button';
-import { EmployeeLabels } from '../../utils/labels/employee-labels';
-import { DetailedLabels } from '../../utils/labels/detailed-labels';
 
-interface Employee {
-  // id: {
-  //   value: string;
-  // };
-  array: [];
-}
+// Labels
+import { DetailedLabels } from '../../utils/labels/detailed-labels';
 
 export const ContactInformation = () => {
   const location = useLocation();

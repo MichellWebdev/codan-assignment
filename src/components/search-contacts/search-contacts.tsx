@@ -41,6 +41,8 @@ export const SearchContacts = () => {
     setContactsMounted(true);
   });
 
+  console.log('employeeArray', employeeArray);
+
   // Search functionality on first and last name
   const filteredEmployees = employeeArray.filter((employee: EmployeeLabels) => {
     return (
