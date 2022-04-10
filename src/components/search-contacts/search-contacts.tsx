@@ -64,7 +64,7 @@ export const SearchContacts = () => {
       <SearchBar placeholder='Search employee name or e-mail' handleSearch={handleSearch} />
       <div className='container-fluid'>
         <div className='row page-margin'>
-          <div className='col-auto'>
+          <div className='col-auto mb-3'>
             <Button onClick={handleSort} buttonText='Sort alphabetically' />
           </div>
         </div>

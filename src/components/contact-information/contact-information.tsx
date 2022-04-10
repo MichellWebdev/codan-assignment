@@ -26,7 +26,7 @@ export const ContactInformation = () => {
     <>
       <Header />
       <div className='container-fluid'>
-        <div className='row page-margin'>
+        <div className='row page-margin mb-3'>
           <Link to='/' state={employeeArray}>
             <Button buttonText='Back to list' />
           </Link>
