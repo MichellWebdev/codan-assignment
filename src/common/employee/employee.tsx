@@ -11,12 +11,7 @@ interface EmployeeProps {
   employee: EmployeeLabels;
 }
 
-export const Employee = ({
-  employee,
-  employee: {
-    id: { value },
-  },
-}: EmployeeProps) => {
+export const Employee = ({ employee }: EmployeeProps) => {
   return (
     <Link to='/details' state={employee}>
       <div className='container-fluid'>
@@ -28,25 +23,35 @@ export const Employee = ({
             <div className='row'>
               <div className='col-md-4'>
                 <p>
-                  Name: {employee.name.first} {employee.name.last}
+                  <b>Name:</b> {employee.name.first} {employee.name.last}
                 </p>
               </div>
               <div className='col-md-4'>
-                <p>Phone: {employee.phone} </p>
+                <p>
+                  <b>Mobile:</b> {employee.cell}
+                </p>
               </div>
               <div className='col-md-4'>
-                <p>Mobile: {employee.cell} </p>
+                <p>
+                  <b>Country:</b> {employee.location.country}
+                </p>
               </div>
             </div>
             <div className='row'>
               <div className='col-md-4'>
-                <p>E-mail: {employee.email} </p>
+                <p>
+                  <b>E-mail:</b> {employee.email}
+                </p>
               </div>
               <div className='col-md-4'>
-                <p>Country: {employee.location.country} </p>
+                <p>
+                  <b>Phone:</b> {employee.phone}
+                </p>
               </div>
               <div className='col-md-4'>
-                <p>Nationality: {employee.nat} </p>
+                <p>
+                  <b>Nationality:</b> {employee.nat}
+                </p>
               </div>
             </div>
           </div>

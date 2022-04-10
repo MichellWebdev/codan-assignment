@@ -8,20 +8,20 @@ import { fetchEmployees } from '../../services/actions/employeeAction';
 
 // Components
 import { SearchBar } from '../../common/search-bar/search-bar';
-import { ContactList } from '../../common/contact-list/contact-list';
+import { EmployeeList } from '../../common/employee-list/employee-list';
 
 // Labels
 import { EmployeeLabels } from '../../utils/labels/employee-labels';
+import { Button } from '../../common/button/button';
 
-export const SearchContacts = () => {
+export const SearchEmployee = () => {
   const dispatch = useDispatch();
   const location = useLocation();
 
-  // Mounted component
-  const [contactsMounted, setContactsMounted] = useState(false);
-
-  // Search field with a default value of an empty string
+  // States
+  const [employeeListMounted, setEmployeeListMounted] = useState(false);
   const [searchField, setSearchField] = useState('');
+  const [, setButtonClicked] = useState(false);
 
   // Retrieve data from redux
   let employeeArray: EmployeeLabels[] = useSelector((state: RootState) => state.employee);
@@ -29,7 +29,7 @@ export const SearchContacts = () => {
   // Retrieve data from state
   const state = location.state as EmployeeLabels[];
 
-  if (state === null && !contactsMounted) {
+  if (state === null && !employeeListMounted) {
     dispatch(fetchEmployees());
   }
 
@@ -38,16 +38,15 @@ export const SearchContacts = () => {
   }
 
   useEffect(() => {
-    setContactsMounted(true);
+    setEmployeeListMounted(true);
   });
 
-  console.log('employeeArray', employeeArray);
-
-  // Search functionality on first and last name
+  // Search functionality on first name, last name or email
   const filteredEmployees = employeeArray.filter((employee: EmployeeLabels) => {
     return (
       employee.name.first.toLowerCase().includes(searchField.toLowerCase()) ||
-      employee.name.last.toLowerCase().includes(searchField.toLowerCase())
+      employee.name.last.toLowerCase().includes(searchField.toLowerCase()) ||
+      employee.email.toLowerCase().includes(searchField.toLowerCase())
     );
   });
 
@@ -55,10 +54,22 @@ export const SearchContacts = () => {
     setSearchField(e.currentTarget.value);
   };
 
+  const handleSort = () => {
+    employeeArray.sort((a, b) => a.name.first.toLowerCase().localeCompare(b.name.first.toLowerCase()));
+    setButtonClicked(true);
+  };
+
   return (
     <>
-      <SearchBar placeholder='Search employee name' handleSearch={handleSearch} />
-      <ContactList filteredEmployees={filteredEmployees} />
+      <SearchBar placeholder='Search employee name or e-mail' handleSearch={handleSearch} />
+      <div className='container-fluid'>
+        <div className='row page-margin'>
+          <div className='col-auto mb-3'>
+            <Button onClick={handleSort} buttonText='Sort alphabetically' />
+          </div>
+        </div>
+      </div>
+      <EmployeeList filteredEmployees={filteredEmployees} />
     </>
   );
 };

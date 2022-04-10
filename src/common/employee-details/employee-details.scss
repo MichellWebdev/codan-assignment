@@ -1,0 +1,22 @@
+@import '../../utils/shared-styles.scss';
+
+  @media only screen and (min-width: 576px) {
+    .details {
+      width: 80%;
+      margin-left: 0;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .details {
+      width: 50%;
+      margin-left: 0;
+    }
+  }
+
+
+.details-card {
+  background-color: white;
+  padding: 1rem;
+  box-shadow: $box-shadow;
+  margin-bottom: 2rem !important;
+}
